@@ -20,7 +20,7 @@ class Utils {
 
     static async importImage(imageName) {
         try {
-            const image = await import(`./assets/img/${imageName}.png`);
+            const image = await import(`./assets/img/${imageName}.jpeg`);
             return image.default;
         } catch(error) {
             console.error("Erro ao importar imagem:", error);
@@ -31,12 +31,13 @@ class Utils {
 
 class Timer {
 
-    constructor(minutes, seconds, onUpdate = function(_min, _sec){return}) {
+    constructor(minutes, seconds, onUpdate = function(_min, _sec){return}, onEnd) {
         if(seconds > 59)
             throw new Error("Seconds must be less than 60");
         this.seconds = seconds;
         this.minutes = minutes;
         this.onUpdate = onUpdate;
+        this.onEnd = onEnd;
     }
 
     startTimer() {
@@ -50,6 +51,7 @@ class Timer {
                 }
                 else {
                     clearInterval(this.timer);
+                    this.onEnd();
                 }
                 return;
             }
