@@ -7,6 +7,23 @@ class GameView {
         this.eventFunction = eventFunction;
     }
 
+    createScoreBoard() {
+        const scoreElement = document.createElement('div');
+        scoreElement.id = 'scoreboard';
+        const score = document.createElement('div');
+        const timer = document.createElement('div');
+
+        score.textContent = "Pontos: 0";
+        score.id = "score";
+
+        timer.textContent = "1:00";
+        timer.id = "timer";
+
+        scoreElement.appendChild(score);
+        scoreElement.appendChild(timer);
+        this.parentElement.appendChild(scoreElement);
+    }
+
     async createCards(numberOfCards) {
         const cards = [];
         for (let i = 1; i <= numberOfCards; i++) {
@@ -55,13 +72,21 @@ class GameView {
             fragment.appendChild(cardElement);
         });
     
-        this.parentElement.appendChild(fragment);
+        
+        const containerGame = document.createElement('div');
+        containerGame.id = 'container-game';
+        containerGame.appendChild(fragment);
+        this.parentElement.appendChild(containerGame);
     }
 
     updateTimer(minutes, seconds) {
         const formattedSeconds = String(seconds).padStart(2, '0');
         const formattedMinutes = String(minutes).padStart(2, '0');
         document.querySelector('#timer').innerText = `${formattedMinutes}:${formattedSeconds}`;
+    }
+
+    updateScore(score) {
+        document.querySelector('#score').innerText = `Pontos: ${score}`;
     }
 
     removeEvents(...element) {
@@ -86,8 +111,21 @@ const Game = function(container) {
     const timer = new Timer(0, 59, view.updateTimer, endGame);
     const score = new ScoreBoard();
     
-    view.createCards(8);
-    timer.startTimer();
+    view.createScoreBoard();
+    view.createCards(9).then(() => {
+        setTimeout(() => {
+            document.querySelectorAll('.flip-card-inner').forEach(card => {
+                card.classList.add('flipped');
+            });
+            setTimeout(() => {
+                document.querySelectorAll('.flip-card-inner').forEach(card => {
+                    card.classList.remove('flipped');
+                });
+                timer.startTimer();
+            }, 3000);
+        }, 50);
+    });
+    
 
     let selection1 = null;
     let selection2 = null;
@@ -110,8 +148,7 @@ const Game = function(container) {
                     view.removeEvents(selection1, selection2);
                     score.setScore(timer.getSeconds());
 
-                    // Arrumar score
-                    console.log(score.getScore());
+                    view.updateScore(score.getScore());
 
                     resetSelections();
 
@@ -144,6 +181,5 @@ const Game = function(container) {
         console.log("o jogo acabou, pontuação:" + score.getScore());
     }
 }
-
 
 export default Game;
