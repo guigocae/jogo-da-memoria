@@ -1,0 +1,32 @@
+#container-ranking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#container-ranking h3 {
+    font-size: clamp(16px, 2.5vw, 56px);
+}
+
+#ranking-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 50vw;
+    font-size: clamp(10px, 2vw, 42px);
+}
+
+#ranking-list li {
+    display: flex;
+}
+
+#bar-element {
+    flex: 1;
+    margin: .6vw 1.5vw;
+    border-bottom: 0.1px solid;
+}
+
+#voltar-button {
+    margin: 1vw;
+}

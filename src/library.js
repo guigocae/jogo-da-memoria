@@ -4,7 +4,7 @@ class Utils {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
-        console.log(array)
+        // console.log(array)
     }
 
     static async importImage(imageName) {
@@ -32,6 +32,20 @@ class Utils {
 
     static deleteCookie(name) {
         document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
+
+    static getRankingItems() {
+        const keyItems = [];
+        // Obter todos os itens do LocalStorage
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const value = localStorage.getItem(key);
+    
+            if(key) {
+                keyItems.push({ key, value });
+            } else break;
+        }
+        return keyItems;
     }
 }
 

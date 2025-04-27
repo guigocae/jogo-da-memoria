@@ -40,6 +40,8 @@ class HomeView {
 }
 
 export default function Home(parentElement) {
+    Utils.deleteCookie("nome");
+    
     const view = new HomeView(parentElement);
     view.createHome();
 

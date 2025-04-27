@@ -23,7 +23,7 @@ input {
 
 button {
     max-width: fit-content;
-    font-size: clamp(12px, 1.5vw, 24px);
+    font-size: clamp(10px, 1.5vw, 24px);
     padding-block: 0.3vw;
     padding-inline: 1.3vw;
     cursor: pointer;

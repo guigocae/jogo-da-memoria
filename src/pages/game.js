@@ -191,7 +191,7 @@ const Game = function(container) {
             view.deleteContainer();
             ranking(container);
         }, 1000);
-        console.log("o jogo acabou, pontuação:" + score.getScore());
+        // console.log("o jogo acabou, pontuação:" + score.getScore());
     }
 }
 
