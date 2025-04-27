@@ -1,4 +1,4 @@
-import Game from "./game";
+import prepare from './prepare';
 import { Utils } from '../library';
 import '../assets/css/home.css';
 
@@ -48,7 +48,7 @@ export default function Home(parentElement) {
 
         Utils.setCookie("nome", inputValue, 1);
         view.deleteHome();
-        Game(parentElement);
+        prepare(parentElement);
     });
 
 }

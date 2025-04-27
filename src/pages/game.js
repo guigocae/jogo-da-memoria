@@ -1,4 +1,6 @@
 import { Utils, Timer, ScoreBoard } from "../library";
+import ranking from "./ranking";
+import '../assets/css/game.css';
 
 class GameView {
 
@@ -103,6 +105,11 @@ class GameView {
         element1.firstElementChild.classList.remove('flipped');
         element2.firstElementChild.classList.remove('flipped');
     }
+
+    deleteContainer() {
+        document.getElementById("scoreboard").remove();
+        document.getElementById("container-game").remove();
+    }
 }
 
 
@@ -122,7 +129,7 @@ const Game = function(container) {
                     card.classList.remove('flipped');
                 });
                 timer.startTimer();
-            }, 3000);
+            }, 3500);
         }, 50);
     });
     
@@ -178,6 +185,12 @@ const Game = function(container) {
 
     function endGame() {
         timer.stopTimer();
+        localStorage.setItem(Utils.getCookie("nome"), score.getScore());
+
+        setTimeout(() => {
+            view.deleteContainer();
+            ranking(container);
+        }, 1000);
         console.log("o jogo acabou, pontuação:" + score.getScore());
     }
 }

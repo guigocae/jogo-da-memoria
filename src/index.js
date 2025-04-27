@@ -1,6 +1,6 @@
 import Home from "./pages/home";
 import './assets/css/index.css';
-import './assets/css/game.css';
+// import prepare from "./pages/prepare";
 
 const container = document.querySelector("#content");
 
@@ -53,14 +53,6 @@ function attemptIosFullscreen() {
     
     // 3. Mostra instruções para o usuário
     alert('No iPhone, toque no ícone de compartilhar e selecione "Adicionar à Tela de Início" para uma experiência em tela cheia.');
-    
-    // 4. Alternativa: expandir o elemento manualmente (não é true fullscreen)
-    content.style.position = 'fixed';
-    content.style.top = '0';
-    content.style.left = '0';
-    content.style.width = '100%';
-    content.style.height = '100%';
-    content.style.zIndex = '9999';
 }
 
 Home(container);
