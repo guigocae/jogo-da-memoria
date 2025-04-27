@@ -52,13 +52,13 @@
   
   /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-    background-color: #636363;
+    background-color: dodgerblue;
     color: black;
 }
   
   /* Style the back side */
 .flip-card-back {
-    background-color: dodgerblue;
+    background-color: #636363;
     color: white;
     transform: rotateY(180deg);
     overflow: hidden;

@@ -45,6 +45,9 @@ export default function Home(parentElement) {
     const view = new HomeView(parentElement);
     view.createHome();
 
+    Utils.animate('#content', 'fadeIn');
+    Utils.animate('h2', 'backInDown');
+
     document.querySelector("#start-button").addEventListener("click", () => {
         const inputValue = document.querySelector("#text-value").value;
 

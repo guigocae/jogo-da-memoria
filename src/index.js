@@ -1,5 +1,6 @@
 import Home from "./pages/home";
 import './assets/css/index.css';
+import 'animate.css';
 
 const container = document.querySelector("#content");
 
