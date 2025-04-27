@@ -1,14 +1,3 @@
-class ScoreBoard {
-    constructor() {
-        this.score = 0;
-    }
-
-    setScore = (aditional = 0) => this.score += 10 + aditional;
-    getScore() {
-        return this.score;
-    }
-}
-
 class Utils {
     static shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -26,6 +15,23 @@ class Utils {
             console.error("Erro ao importar imagem:", error);
             return null;
         }
+    }
+
+    static setCookie(name, value, exdays) {
+        const date = new Date();
+        date.setTime(date.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    static getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+      }
+
+    static deleteCookie(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     }
 }
 
@@ -69,6 +75,17 @@ class Timer {
         if(this.minutes >= 1)
             return this.seconds + this.minutes*60;
         else return this.seconds;
+    }
+}
+
+class ScoreBoard {
+    constructor() {
+        this.score = 0;
+    }
+
+    setScore = (aditional = 0) => this.score += 10 + aditional;
+    getScore() {
+        return this.score;
     }
 }
 

@@ -1,4 +1,4 @@
-import { Utils, Timer, ScoreBoard } from "./library";
+import { Utils, Timer, ScoreBoard } from "../library";
 
 class GameView {
 

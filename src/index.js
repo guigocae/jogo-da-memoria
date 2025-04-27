@@ -1,4 +1,4 @@
-import Game from "./game";
+import Home from "./pages/home";
 import './assets/css/index.css';
 import './assets/css/game.css';
 
@@ -63,4 +63,4 @@ function attemptIosFullscreen() {
     content.style.zIndex = '9999';
 }
 
-Game(container);
+Home(container);
