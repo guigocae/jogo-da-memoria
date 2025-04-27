@@ -28,3 +28,17 @@ button {
     padding-inline: 1.3vw;
     cursor: pointer;
 }
+
+#start-button {
+    animation: attention 1.5s infinite ease-in-out;
+}
+
+@keyframes attention {
+    0% {
+        scale: 1;
+    } 50% {
+        scale: 0.9;
+    } 100% {
+        scale: 1;
+    }
+}

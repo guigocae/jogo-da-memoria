@@ -22,22 +22,22 @@ class RankingView {
         this.items.forEach((item, index) => {
             if(index >= 10) {
                 localStorage.removeItem(item.key);
+            } else {
+                const listItem = document.createElement('li');
+                const keyElement = document.createElement('div');
+                keyElement.textContent = Utils.getCookie('nome') === item.key ? `${index+1}. ${item.key} (Você)` : `${index+1}. ${item.key}`;
+    
+                const valueElement = document.createElement('div');
+                valueElement.textContent = item.value;
+    
+                const bar = document.createElement('div');
+                bar.id = 'bar-element';
+    
+                listItem.appendChild(keyElement);
+                listItem.appendChild(bar);
+                listItem.appendChild(valueElement);
+                fragment.appendChild(listItem);
             }
-
-            const listItem = document.createElement('li');
-            const keyElement = document.createElement('div');
-            keyElement.textContent = Utils.getCookie('nome') === item.key ? `${index+1}. ${item.key} (Você)` : `${index+1}. ${item.key}`;
-
-            const valueElement = document.createElement('div');
-            valueElement.textContent = item.value;
-
-            const bar = document.createElement('div');
-            bar.id = 'bar-element';
-
-            listItem.appendChild(keyElement);
-            listItem.appendChild(bar);
-            listItem.appendChild(valueElement);
-            fragment.appendChild(listItem);
         });
 
         const button = document.createElement('button');

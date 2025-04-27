@@ -1,8 +1,5 @@
 import Home from "./pages/home";
 import './assets/css/index.css';
-import { Utils } from "./library";
-// import prepare from "./pages/prepare";
-import ranking from "./pages/ranking";
 
 const container = document.querySelector("#content");
 
@@ -57,4 +54,4 @@ function attemptIosFullscreen() {
     alert('No iPhone, toque no ícone de compartilhar e selecione "Adicionar à Tela de Início" para uma experiência em tela cheia.');
 }
 
-ranking(container);
+Home(container);
