@@ -49,13 +49,18 @@ export default function Home(parentElement) {
     Utils.animate('h2', 'backInDown');
 
     document.querySelector("#start-button").addEventListener("click", () => {
-        const inputValue = document.querySelector("#text-value").value;
+        const input = document.querySelector('#text-value')
+        const inputValue = input.value;
 
-        Utils.setCookie("nome", inputValue, 1);
-        Utils.animate('#container-home', 'fadeOut');
-        setTimeout(() => {
-            view.deleteHome();
-            prepare(parentElement);
-        }, 800);
+        if(inputValue.length > 0) {
+            Utils.setCookie("nome", inputValue, 1);
+            Utils.animate('#container-home', 'fadeOut');
+            setTimeout(() => {
+                view.deleteHome();
+                prepare(parentElement);
+            }, 800);
+        } else {
+            input.style.border = '0.12vw solid red';
+        }
     });
 }
