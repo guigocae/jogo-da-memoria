@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjogo_da_memoria=self.webpackChunkjogo_da_memoria||[]).push([[933],{933:(e,a,o)=>{e.exports=o.p+"be9282edec754edcacfa.jpeg"}}]);
