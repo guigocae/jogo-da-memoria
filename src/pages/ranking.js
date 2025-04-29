@@ -65,6 +65,7 @@ export default function ranking(parentElement) {
     // console.log(keyItems);
     const view = new RankingView(parentElement, keyItems);
     view.createView();
+    Utils.animate('#container-ranking', 'fadeIn');
 
     document.querySelector("#voltar-button").addEventListener("click", () => {
         view.deleteView();

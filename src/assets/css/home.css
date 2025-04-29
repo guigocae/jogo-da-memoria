@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 8vw;
 }
 
 #container-input {
@@ -19,18 +20,33 @@ input {
     width: 50vw;
     padding: 1%;
     font-size: clamp(12px, 1.5vw, 24px);
+    border-radius: 0.3vw;
+    border: none;
 }
 
 button {
     max-width: fit-content;
-    font-size: clamp(10px, 1.5vw, 24px);
-    padding-block: 0.3vw;
-    padding-inline: 1.3vw;
+    font-size: clamp(10px, 1.6vw, 24px);
+    padding-block: 0.5vw;
+    padding-inline: 1.5vw;
     cursor: pointer;
+    background-color: dodgerblue;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 1.5vw;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
 }
 
 #start-button {
     animation: attention 1.5s infinite ease-in-out;
+    margin-top: 1vw;
 }
 
 @keyframes attention {

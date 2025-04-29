@@ -18,7 +18,7 @@ class HomeView {
         containerInput.id = 'container-input';
     
         const input = document.createElement('input');
-        input.placeholder = 'Digite seu nome...';
+        input.placeholder = 'Digite seu nome';
         input.id = 'text-value';
         input.autocomplete = 'off';
     
@@ -45,15 +45,17 @@ export default function Home(parentElement) {
     const view = new HomeView(parentElement);
     view.createHome();
 
-    Utils.animate('#content', 'fadeIn');
+    Utils.animate('#container-home', 'fadeIn');
     Utils.animate('h2', 'backInDown');
 
     document.querySelector("#start-button").addEventListener("click", () => {
         const inputValue = document.querySelector("#text-value").value;
 
         Utils.setCookie("nome", inputValue, 1);
-        view.deleteHome();
-        prepare(parentElement);
+        Utils.animate('#container-home', 'fadeOut');
+        setTimeout(() => {
+            view.deleteHome();
+            prepare(parentElement);
+        }, 800);
     });
-
 }

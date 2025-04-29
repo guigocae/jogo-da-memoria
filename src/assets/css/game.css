@@ -15,6 +15,9 @@
   margin: 1vw;
 }
 
+#scoreboard {font-weight: 600;}
+#timer {font-weight: 600;}
+
 .flip-card {
     background-color: transparent;
     width: 10vw;
@@ -52,7 +55,7 @@
   
   /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-    background-color: dodgerblue;
+    background-color: rgba(0, 0, 0, 0.32);
     color: black;
 }
   

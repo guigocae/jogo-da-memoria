@@ -1,3 +1,8 @@
+:root {
+    --dodgeblue-hover: #187bcd;
+    --dodgeblue-active: #1565C0;
+}
+
 @font-face {
     font-family: 'Montserrat';
     src: url('../fonts/static/Montserrat-Regular.ttf') format('truetype');
@@ -39,12 +44,13 @@ body {
     aspect-ratio: 16/9;
     max-width: 1920px;
     margin: 0 auto;
-    background-color: white;
+    background-color: var(--dodgeblue-active);
     overflow: auto;
+    color: white;
 }
 
 h1 {
-    font-size: clamp(16px, 2vw, 48px);
+    font-size: clamp(12px, 2vw, 48px);
     margin: 2%;
     text-align: center;
 }
@@ -60,17 +66,7 @@ h1 {
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 1.5vw;
-}
-
-#container-prepare {
-    font-size: clamp(16px, 3vw, 60px);
-    font-weight: 600;
-    text-align: center;
-    height: 65%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1vw;
 }
 
 @media (max-width: 768px) {

@@ -6,7 +6,8 @@
 }
 
 #container-ranking h3 {
-    font-size: clamp(16px, 2.5vw, 56px);
+    font-size: clamp(14px, 2.5vw, 56px);
+    margin-block: 2vw;
 }
 
 #ranking-list {
@@ -28,5 +29,5 @@
 }
 
 #voltar-button {
-    margin: 1vw;
+    margin-top: 2vw;
 }

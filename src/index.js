@@ -1,8 +1,18 @@
 import Home from "./pages/home";
 import './assets/css/index.css';
 import 'animate.css';
+import prepare from "./pages/prepare";
+import ranking from "./pages/ranking";
+
+const fullscreen = document.createElement('button');
+const titleGame = document.createElement('h1');
+fullscreen.id = 'fullscreen-btn';
+fullscreen.textContent = 'Fullscreen';
+titleGame.textContent = 'Jogo da Memória';
 
 const container = document.querySelector("#content");
+container.appendChild(fullscreen);
+container.appendChild(titleGame);
 
 const fullscreenBtn = document.getElementById('fullscreen-btn');
 const content = document.getElementById('content');
@@ -55,4 +65,4 @@ function attemptIosFullscreen() {
     alert('No iPhone, toque no ícone de compartilhar e selecione "Adicionar à Tela de Início" para uma experiência em tela cheia.');
 }
 
-Home(container);
+prepare(container);

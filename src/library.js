@@ -62,7 +62,7 @@ class Utils {
             node.classList.remove(`${prefix}animated`, animationName);
             resolve('Animation ended');
           }
-      
+          
           node.addEventListener('animationend', handleAnimationEnd, {once: true});
         });
     }

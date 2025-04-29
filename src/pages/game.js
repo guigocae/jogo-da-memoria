@@ -23,7 +23,7 @@ class GameView {
 
         scoreElement.appendChild(score);
         scoreElement.appendChild(timer);
-        this.parentElement.appendChild(scoreElement);
+        this.scoreElement = scoreElement;
     }
 
     async createCards(numberOfCards) {
@@ -78,6 +78,7 @@ class GameView {
         const containerGame = document.createElement('div');
         containerGame.id = 'container-game';
         containerGame.appendChild(fragment);
+        this.parentElement.appendChild(this.scoreElement);
         this.parentElement.appendChild(containerGame);
     }
 
@@ -120,6 +121,8 @@ const Game = function(container) {
     
     view.createScoreBoard();
     view.createCards(9).then(() => {
+        Utils.animate('#scoreboard', 'fadeIn');
+        Utils.animate('#container-game', 'fadeIn');
         setTimeout(() => {
             document.querySelectorAll('.flip-card-inner').forEach(card => {
                 card.classList.add('flipped');
@@ -130,7 +133,7 @@ const Game = function(container) {
                 });
                 timer.startTimer();
             }, 3500);
-        }, 50);
+        }, 800);
     });
     
 
